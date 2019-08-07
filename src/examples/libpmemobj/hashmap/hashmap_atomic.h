@@ -1,3 +1,11 @@
+/*! \file hashmap_atomic.h
+ *     \brief Implementation of atomic hashmap, where inserts are coordinated to be one after the other.
+ *         
+ *             Details.
+ *             */
+
+
+
 /*
  * Copyright 2015-2017, Intel Corporation
  *

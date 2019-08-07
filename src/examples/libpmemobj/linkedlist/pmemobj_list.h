@@ -1,3 +1,10 @@
+/*! \file pmemobj_list.h
+ *     \brief Pmemobj implementations for pointer manipulation in persistent memory. These are accessed by the fifo queue operations.
+ *         
+ *             Details.
+ *             */
+
+
 /*
  * Copyright 2016, Intel Corporation
  *
@@ -164,7 +171,14 @@ struct name {\
 /*
  * Tail-queue access methods.
  */
+
+/**
+ * Returns the first element of a TailQ List. This particular element, can be used in different situations particularly in a queue system as the head of the queue.
+ */
 #define POBJ_TAILQ_FIRST(head)	((head)->pe_first)
+/**
+ * Returns the first element of a TailQ List. This particular element, can be used in different situations particularly in a queue system as the tail of the queue.
+ */
 #define POBJ_TAILQ_LAST(head)	((head)->pe_last)
 
 #define POBJ_TAILQ_EMPTY(head)	(TOID_IS_NULL((head)->pe_first))
@@ -202,6 +216,9 @@ struct name {\
 		!TOID_IS_NULL(var);\
 		var = POBJ_TAILQ_PREV(var, field))
 
+/**
+ * Initializing the tailq queue, and assigning the head element pobj to OID null, and assigning accordingly
+ */
 #define POBJ_TAILQ_INIT(head) do {\
 	TX_ADD_FIELD_DIRECT(head, pe_first);\
 	TOID_ASSIGN((head)->pe_first, OID_NULL);\
@@ -209,6 +226,9 @@ struct name {\
 	TOID_ASSIGN((head)->pe_last, OID_NULL);\
 } while (0)
 
+/**
+ * Inserting the element similar to a queue to the head. This requires some basic steps which are carried out in sequence as a regular queue implementation. Initially the type of the element pointer is determined. The head , is pointed to the first, and the next is pointed to the first, and thus it becomes the new head inserted. This is the case, if there is no head, if ithere is aready a head, it is directly added, to the head, and the next is pointed to the head. 
+ */
 #define POBJ_TAILQ_INSERT_HEAD(head, elm, field) do {\
 	TOID_TYPEOF(elm) *elm_ptr = D_RW(elm);\
 	if (TOID_IS_NULL((head)->pe_first)) {\

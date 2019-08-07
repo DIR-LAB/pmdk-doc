@@ -117,7 +117,9 @@ main(int argc, const char *argv[])
 	TOID(struct fifo_root) root = POBJ_ROOT(pop, struct fifo_root);
 	struct tqueuehead *tqhead = &D_RW(root)->head;
 	TOID(struct tqnode) node;
-
+    /**
+     * Checking if insert occurs, and proceeding accordingly by doing a pmemobj insert head. Here we take the third argument, which is the data.
+     */
 	if (strcmp(argv[2], "insert") == 0) {
 		if (argc == 4) {
 			TX_BEGIN(pop) {

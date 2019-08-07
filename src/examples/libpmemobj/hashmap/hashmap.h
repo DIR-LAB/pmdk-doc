@@ -1,3 +1,11 @@
+/*! \file hashmap.h
+ *     \brief Hashmap implementation in persistent memory
+ *         
+ *             Details.
+ *             */
+
+
+
 /*
  * Copyright 2015-2017, Intel Corporation
  *
