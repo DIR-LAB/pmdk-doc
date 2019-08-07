@@ -1,4 +1,11 @@
+/*! \file fifo.c
+ *     \brief Example of a tail queue usage
+ *         
+ *             Details.
+ *             */
 /*
+
+
  * Copyright 2016, Intel Corporation
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,9 +37,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-/*
- * fifo.c - example of tail queue usage
- */
+/*! \file fifo.c
+ *     \brief Example of a tail queue usage
+ *         
+ *             Details.
+ *             */
 
 #include <ex_common.h>
 #include <stdio.h>
@@ -51,11 +60,17 @@ struct fifo_root {
 	struct tqueuehead head;
 };
 
+/**
+ * Indication of the Tail Entry of the queue node
+ */ 
 struct tqnode {
 	char data;
 	POBJ_TAILQ_ENTRY(struct tqnode) tnd;
 };
 
+/**
+ * Print help function to help with what occurs in this given function right now
+ */
 static void
 print_help(void)
 {
@@ -69,7 +84,11 @@ print_help(void)
 int
 main(int argc, const char *argv[])
 {
-	PMEMobjpool *pop;
+
+	/**
+	 * Initially we create a pmempool, and we initialize a path. The arguments here, represent the following variables which are inputted. The first argument is the path. The second argument is the operation , indicating whether it is an insert, remove or print. This is coherent with the way a queue regularly works, with it having remove and print the first element in the queue. And then insert to the end of the queue. This one is an indication of the same.
+	 */
+	PMEMobjpool *pop; /*!< Detailed description after the member */
 	const char *path;
 
 	if (argc < 3) {
