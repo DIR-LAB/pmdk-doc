@@ -56,6 +56,9 @@ POBJ_LAYOUT_END(list);
 
 POBJ_TAILQ_HEAD(tqueuehead, struct tqnode);
 
+/**
+ * Indication of the FIFO root node or the head node of the tqueue
+ */
 struct fifo_root {
 	struct tqueuehead head;
 };
