@@ -1,0 +1,10 @@
+digraph "_toid_var_string_toid"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="_toid_var_string_toid",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _type" ,fontname="Helvetica"];
+  Node2 [label="_var_string",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct__var__string.html"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" oid" ,fontname="Helvetica"];
+  Node3 [label="pmemoid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structpmemoid.html"];
+}

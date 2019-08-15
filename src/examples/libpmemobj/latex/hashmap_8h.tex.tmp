@@ -1,0 +1,32 @@
+\hypertarget{hashmap_8h}{}\section{hashmap/hashmap.h File Reference}
+\label{hashmap_8h}\index{hashmap/hashmap.\+h@{hashmap/hashmap.\+h}}
+
+
+Hashmap implementation in persistent memory.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for hashmap.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhashmap__args}{hashmap\+\_\+args}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hashmap_8h_a06616991d22cc27ebd6f17d026241386}\label{hashmap_8h_a06616991d22cc27ebd6f17d026241386}} 
+enum {\bfseries hashmap\+\_\+cmd} \{ {\bfseries H\+A\+S\+H\+M\+A\+P\+\_\+\+C\+M\+D\+\_\+\+R\+E\+B\+U\+I\+LD}, 
+{\bfseries H\+A\+S\+H\+M\+A\+P\+\_\+\+C\+M\+D\+\_\+\+D\+E\+B\+UG}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hashmap implementation in persistent memory. 
+
+Details. 

@@ -1,0 +1,12 @@
+digraph "hashmap/hashmap.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node3 [label="hashmap/hashmap.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="hashmap/hashmap_atomic.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hashmap__atomic_8h.html",tooltip="Implementation of atomic hashmap, where inserts are coordinated to be one after the other..."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="hashmap/hashmap_rp.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hashmap__rp_8h_source.html"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="hashmap/hashmap_tx.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hashmap__tx_8h_source.html"];
+}

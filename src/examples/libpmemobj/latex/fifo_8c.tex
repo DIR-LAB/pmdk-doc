@@ -1,0 +1,60 @@
+\hypertarget{fifo_8c}{}\section{linkedlist/fifo.c File Reference}
+\label{fifo_8c}\index{linkedlist/fifo.\+c@{linkedlist/fifo.\+c}}
+
+
+Example of a tail queue usage.  
+
+
+{\ttfamily \#include $<$ex\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}pmemobj\+\_\+list.\+h\char`\"{}}\newline
+Include dependency graph for fifo.\+c\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfifo__root}{fifo\+\_\+root}
+\item 
+struct \hyperlink{structtqnode}{tqnode}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fifo_8c_abdfca56bbdeb6ee593a723f9d78f9a62}\label{fifo_8c_abdfca56bbdeb6ee593a723f9d78f9a62}} 
+{\bfseries P\+O\+B\+J\+\_\+\+L\+A\+Y\+O\+U\+T\+\_\+\+B\+E\+G\+IN} (list)
+\item 
+\mbox{\Hypertarget{fifo_8c_a72a69504e27903923162e68f33492559}\label{fifo_8c_a72a69504e27903923162e68f33492559}} 
+{\bfseries P\+O\+B\+J\+\_\+\+L\+A\+Y\+O\+U\+T\+\_\+\+R\+O\+OT} (list, struct \hyperlink{structfifo__root}{fifo\+\_\+root})
+\item 
+\mbox{\Hypertarget{fifo_8c_ab252059e1bccb1a99700bface1eed039}\label{fifo_8c_ab252059e1bccb1a99700bface1eed039}} 
+{\bfseries P\+O\+B\+J\+\_\+\+L\+A\+Y\+O\+U\+T\+\_\+\+T\+O\+ID} (list, struct \hyperlink{structtqnode}{tqnode})
+\item 
+\mbox{\Hypertarget{fifo_8c_ac781e28175878fee2882fdec9fe0e5ff}\label{fifo_8c_ac781e28175878fee2882fdec9fe0e5ff}} 
+{\bfseries P\+O\+B\+J\+\_\+\+L\+A\+Y\+O\+U\+T\+\_\+\+E\+ND} (list)
+\item 
+\mbox{\Hypertarget{fifo_8c_a09f61fb0bd8623654811d0cfdd6b6715}\label{fifo_8c_a09f61fb0bd8623654811d0cfdd6b6715}} 
+{\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD} (tqueuehead, struct \hyperlink{structtqnode}{tqnode})
+\item 
+int \hyperlink{fifo_8c_ac0f2228420376f4db7e1274f2b41667c}{main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Example of a tail queue usage. 
+
+Details. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{fifo_8c_ac0f2228420376f4db7e1274f2b41667c}\label{fifo_8c_ac0f2228420376f4db7e1274f2b41667c}} 
+\index{fifo.\+c@{fifo.\+c}!main@{main}}
+\index{main@{main}!fifo.\+c@{fifo.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Initially we create a pmempool, and we initialize a path. The arguments here, represent the following variables which are inputted. The first argument is the path. The second argument is the operation , indicating whether it is an insert, remove or print. This is coherent with the way a queue regularly works, with it having remove and print the first element in the queue. And then insert to the end of the queue. This one is an indication of the same.
+
+$<$ Detailed description after the member
+
+Checking if insert occurs, and proceeding accordingly by doing a pmemobj insert head. Here we take the third argument, which is the data.

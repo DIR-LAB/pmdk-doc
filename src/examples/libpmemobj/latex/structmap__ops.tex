@@ -1,0 +1,59 @@
+\hypertarget{structmap__ops}{}\section{map\+\_\+ops Struct Reference}
+\label{structmap__ops}\index{map\+\_\+ops@{map\+\_\+ops}}
+
+
+Collaboration diagram for map\+\_\+ops\+:
+% FIG 0
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmap__ops_a611f04cee72408cc665f78bac7a59298}\label{structmap__ops_a611f04cee72408cc665f78bac7a59298}} 
+int($\ast$ {\bfseries check} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a280e6586982dff19cf76de14a94ec872}\label{structmap__ops_a280e6586982dff19cf76de14a94ec872}} 
+int($\ast$ {\bfseries create} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) $\ast$map, void $\ast$arg)
+\item 
+\mbox{\Hypertarget{structmap__ops_a7da4b7d3052295e8040e8e6d4f9520e7}\label{structmap__ops_a7da4b7d3052295e8040e8e6d4f9520e7}} 
+int($\ast$ {\bfseries destroy} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) $\ast$map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a0da5620e4a44370970fd7ec0f27a52a7}\label{structmap__ops_a0da5620e4a44370970fd7ec0f27a52a7}} 
+int($\ast$ {\bfseries init} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a73d369ba1a875cb498e449a958e97edb}\label{structmap__ops_a73d369ba1a875cb498e449a958e97edb}} 
+int($\ast$ {\bfseries insert} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key, \hyperlink{structpmemoid}{P\+M\+E\+Moid} value)
+\item 
+\mbox{\Hypertarget{structmap__ops_a79d86ddd52e0f4249246c14a07734f38}\label{structmap__ops_a79d86ddd52e0f4249246c14a07734f38}} 
+int($\ast$ {\bfseries insert\+\_\+new} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key, size\+\_\+t size, unsigned type\+\_\+num, void($\ast$constructor)(P\+M\+E\+Mobjpool $\ast$pop, void $\ast$ptr, void $\ast$arg), void $\ast$arg)
+\item 
+\mbox{\Hypertarget{structmap__ops_a10a522fc26b22b0ff1942ce9d8f0aa7f}\label{structmap__ops_a10a522fc26b22b0ff1942ce9d8f0aa7f}} 
+\hyperlink{structpmemoid}{P\+M\+E\+Moid}($\ast$ {\bfseries remove} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{structmap__ops_a9ea34bb0ed2da9c74ffc7f1711763817}\label{structmap__ops_a9ea34bb0ed2da9c74ffc7f1711763817}} 
+int($\ast$ {\bfseries remove\+\_\+free} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{structmap__ops_a232fc50db9f6f2879d7d7c5383a09b19}\label{structmap__ops_a232fc50db9f6f2879d7d7c5383a09b19}} 
+int($\ast$ {\bfseries clear} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a55f0969470b229d08e2f9c86d43183b8}\label{structmap__ops_a55f0969470b229d08e2f9c86d43183b8}} 
+\hyperlink{structpmemoid}{P\+M\+E\+Moid}($\ast$ {\bfseries get} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{structmap__ops_a12c7c80d888b3718750f0080844e3807}\label{structmap__ops_a12c7c80d888b3718750f0080844e3807}} 
+int($\ast$ {\bfseries lookup} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{structmap__ops_afd8986f50ed0ab8b501b8144c5470bc0}\label{structmap__ops_afd8986f50ed0ab8b501b8144c5470bc0}} 
+int($\ast$ {\bfseries foreach} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, int($\ast$cb)(uint64\+\_\+t key, \hyperlink{structpmemoid}{P\+M\+E\+Moid} value, void $\ast$arg), void $\ast$arg)
+\item 
+\mbox{\Hypertarget{structmap__ops_a389b878160d136e18b2c6de2b37120a2}\label{structmap__ops_a389b878160d136e18b2c6de2b37120a2}} 
+int($\ast$ {\bfseries is\+\_\+empty} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a01548382c83d67e311c49f09201033b1}\label{structmap__ops_a01548382c83d67e311c49f09201033b1}} 
+size\+\_\+t($\ast$ {\bfseries count} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map)
+\item 
+\mbox{\Hypertarget{structmap__ops_a8848b6f9a7cc1b466a9bfb3d5f10ddb3}\label{structmap__ops_a8848b6f9a7cc1b466a9bfb3d5f10ddb3}} 
+int($\ast$ {\bfseries cmd} )(P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct map) map, unsigned cmd, uint64\+\_\+t arg)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+map/map.\+h\end{DoxyCompactItemize}

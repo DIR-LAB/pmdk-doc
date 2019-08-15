@@ -1,0 +1,61 @@
+\hypertarget{hashmap__atomic_8h}{}\section{hashmap/hashmap\+\_\+atomic.h File Reference}
+\label{hashmap__atomic_8h}\index{hashmap/hashmap\+\_\+atomic.\+h@{hashmap/hashmap\+\_\+atomic.\+h}}
+
+
+Implementation of atomic hashmap, where inserts are coordinated to be one after the other.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$hashmap.\+h$>$}\newline
+{\ttfamily \#include $<$libpmemobj.\+h$>$}\newline
+Include dependency graph for hashmap\+\_\+atomic.\+h\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_ac7a2806ad6610fce7f1a06b8777c773f}\label{hashmap__atomic_8h_ac7a2806ad6610fce7f1a06b8777c773f}} 
+\#define {\bfseries H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+O\+M\+I\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+O\+F\+F\+S\+ET}~1000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a10298cea42cfb536c27f9c6a4abeecc1}\label{hashmap__atomic_8h_a10298cea42cfb536c27f9c6a4abeecc1}} 
+{\bfseries T\+O\+I\+D\+\_\+\+D\+E\+C\+L\+A\+RE} (struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}, H\+A\+S\+H\+M\+A\+P\+\_\+\+A\+T\+O\+M\+I\+C\+\_\+\+T\+Y\+P\+E\+\_\+\+O\+F\+F\+S\+ET+0)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a598708b91dce5756734872ba7591f275}\label{hashmap__atomic_8h_a598708b91dce5756734872ba7591f275}} 
+int {\bfseries hm\+\_\+atomic\+\_\+check} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_acbb4c401a679ca192b8758cde9befce8}\label{hashmap__atomic_8h_acbb4c401a679ca192b8758cde9befce8}} 
+int {\bfseries hm\+\_\+atomic\+\_\+create} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) $\ast$map, void $\ast$arg)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a04f0c019c9846769951407ba5a03fb16}\label{hashmap__atomic_8h_a04f0c019c9846769951407ba5a03fb16}} 
+int {\bfseries hm\+\_\+atomic\+\_\+init} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_af9e2aa6113e1ce3b5dbaac973ebda554}\label{hashmap__atomic_8h_af9e2aa6113e1ce3b5dbaac973ebda554}} 
+int {\bfseries hm\+\_\+atomic\+\_\+insert} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, uint64\+\_\+t key, \hyperlink{structpmemoid}{P\+M\+E\+Moid} value)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a271644b8a80804a39314ce6cf7582b33}\label{hashmap__atomic_8h_a271644b8a80804a39314ce6cf7582b33}} 
+\hyperlink{structpmemoid}{P\+M\+E\+Moid} {\bfseries hm\+\_\+atomic\+\_\+remove} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_ad203219cd5cd5a4d69661004b53f193f}\label{hashmap__atomic_8h_ad203219cd5cd5a4d69661004b53f193f}} 
+\hyperlink{structpmemoid}{P\+M\+E\+Moid} {\bfseries hm\+\_\+atomic\+\_\+get} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_aaf062e36e2b6e22bc832847d5ee67dd1}\label{hashmap__atomic_8h_aaf062e36e2b6e22bc832847d5ee67dd1}} 
+int {\bfseries hm\+\_\+atomic\+\_\+lookup} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, uint64\+\_\+t key)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_af1a055b49bce902e78ef3774e6ea5918}\label{hashmap__atomic_8h_af1a055b49bce902e78ef3774e6ea5918}} 
+int {\bfseries hm\+\_\+atomic\+\_\+foreach} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, int($\ast$cb)(uint64\+\_\+t key, \hyperlink{structpmemoid}{P\+M\+E\+Moid} value, void $\ast$arg), void $\ast$arg)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a6cb2f755fcf3b9b7c0361754ce6444ce}\label{hashmap__atomic_8h_a6cb2f755fcf3b9b7c0361754ce6444ce}} 
+size\+\_\+t {\bfseries hm\+\_\+atomic\+\_\+count} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap)
+\item 
+\mbox{\Hypertarget{hashmap__atomic_8h_a1b44897be6a25691a516e1af2d2a2e26}\label{hashmap__atomic_8h_a1b44897be6a25691a516e1af2d2a2e26}} 
+int {\bfseries hm\+\_\+atomic\+\_\+cmd} (P\+M\+E\+Mobjpool $\ast$pop, T\+O\+ID(struct \hyperlink{structhashmap__atomic}{hashmap\+\_\+atomic}) hashmap, unsigned cmd, uint64\+\_\+t arg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of atomic hashmap, where inserts are coordinated to be one after the other. 
+
+Details. 

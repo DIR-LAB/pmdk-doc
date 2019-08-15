@@ -1,0 +1,558 @@
+\hypertarget{pmemobj__list_8h}{}\section{linkedlist/pmemobj\+\_\+list.h File Reference}
+\label{pmemobj__list_8h}\index{linkedlist/pmemobj\+\_\+list.\+h@{linkedlist/pmemobj\+\_\+list.\+h}}
+
+
+Pmemobj implementations for pointer manipulation in persistent memory. These are accessed by the fifo queue operations.  
+
+
+{\ttfamily \#include $<$libpmemobj.\+h$>$}\newline
+Include dependency graph for pmemobj\+\_\+list.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD}(name,  type)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY}(type)
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_a82c18e0b0cf89215188929dc94b796cc}\label{pmemobj__list_8h_a82c18e0b0cf89215188929dc94b796cc}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+M\+P\+TY}(head)~(T\+O\+I\+D\+\_\+\+I\+S\+\_\+\+N\+U\+LL((head)-\/$>$pe\+\_\+first))
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_a06a4bba6ee48cd2466fe1d6aa0fc2760}\label{pmemobj__list_8h_a06a4bba6ee48cd2466fe1d6aa0fc2760}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+I\+R\+ST}(head)~((head)-\/$>$pe\+\_\+first)
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_a7bb1e476d45fe6d569d55f5a55d9542d}\label{pmemobj__list_8h_a7bb1e476d45fe6d569d55f5a55d9542d}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+N\+E\+XT}(elm,  field)~(D\+\_\+\+RO(elm)-\/$>$field.\+pe\+\_\+next)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT}(head)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}(slistelm,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD}(head,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH}(var,  head,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY}(type)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD}(name,  type)
+\item 
+\#define \hyperlink{pmemobj__list_8h_a4039b5980a3a61a32281620c19238703}{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST}(head)~((head)-\/$>$pe\+\_\+first)
+\item 
+\#define \hyperlink{pmemobj__list_8h_ab1a1ab59d094a22fd65d12e7d4768550}{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST}(head)~((head)-\/$>$pe\+\_\+last)
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_af7a0a3245e9955875d2252e6bf27cc5e}\label{pmemobj__list_8h_af7a0a3245e9955875d2252e6bf27cc5e}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+M\+P\+TY}(head)~(T\+O\+I\+D\+\_\+\+I\+S\+\_\+\+N\+U\+LL((head)-\/$>$pe\+\_\+first))
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_a09ac1601472384f0c6a04633d7ef375e}\label{pmemobj__list_8h_a09ac1601472384f0c6a04633d7ef375e}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+N\+E\+XT}(elm,  field)~(D\+\_\+\+RO(elm)-\/$>$field.\+pe\+\_\+next)
+\item 
+\mbox{\Hypertarget{pmemobj__list_8h_ad8382c7ac332292ef18a30c98ad5683a}\label{pmemobj__list_8h_ad8382c7ac332292ef18a30c98ad5683a}} 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+P\+R\+EV}(elm,  field)~(D\+\_\+\+RO(elm)-\/$>$field.\+pe\+\_\+prev)
+\item 
+\#define {\bfseries \+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR}(elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL}(head,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH}(var,  head,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE}(var,  head,  field)
+\item 
+\#define \hyperlink{pmemobj__list_8h_a74f5d9cb3d2048db986dd0677bee5a12}{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT}(head)
+\item 
+\#define \hyperlink{pmemobj__list_8h_ae64ca8f8f0408a5cbad62d13d20d6c34}{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}(listelm,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE}(listelm,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD}(head,  elm,  field)
+\item 
+\#define {\bfseries P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL}(head,  elm,  field)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Pmemobj implementations for pointer manipulation in persistent memory. These are accessed by the fifo queue operations. 
+
+Details. 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pmemobj__list_8h_a501a7da17b4b12104cec60fc6601cd4a}\label{pmemobj__list_8h_a501a7da17b4b12104cec60fc6601cd4a}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!\+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR@{\+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR}}
+\index{\+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR@{\+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR}{\_POBJ\_SWAP\_PTR}}
+{\footnotesize\ttfamily \#define \+\_\+\+P\+O\+B\+J\+\_\+\+S\+W\+A\+P\+\_\+\+P\+TR(\begin{DoxyParamCaption}\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+    \_\_typeof\_\_(elm) temp = elm\_ptr->field.pe\_prev;\(\backslash\)
+    elm\_ptr->field.pe\_prev = elm\_ptr->field.pe\_next;\(\backslash\)
+    elm\_ptr->field.pe\_next = temp;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a8ccdb6deffb78cd637bb38ef1b95ce00}\label{pmemobj__list_8h_a8ccdb6deffb78cd637bb38ef1b95ce00}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY}{POBJ\_SLIST\_ENTRY}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\{\(\backslash\)
+    TOID(type) pe\_next;\(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a75e0d8c5f41972d1e93b0d78de79407e}\label{pmemobj__list_8h_a75e0d8c5f41972d1e93b0d78de79407e}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH}{POBJ\_SLIST\_FOREACH}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+F\+O\+R\+E\+A\+CH(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{head,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} ((var) = POBJ\_SLIST\_FIRST(head);\(\backslash\)
+        !TOID\_IS\_NULL(var);\(\backslash\)
+        var = POBJ\_SLIST\_NEXT(var, field))
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a020d23d0bf1f4831bea29d9741475f2c}\label{pmemobj__list_8h_a020d23d0bf1f4831bea29d9741475f2c}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD}{POBJ\_SLIST\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }name \{\(\backslash\)
+    TOID(type) pe\_first;\(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a91b31c2a97d1bc4cbd376438958b7253}\label{pmemobj__list_8h_a91b31c2a97d1bc4cbd376438958b7253}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT}{POBJ\_SLIST\_INIT}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+IT(\begin{DoxyParamCaption}\item[{}]{head }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TX\_ADD\_DIRECT(&(head)->pe\_first);\(\backslash\)
+    TOID\_ASSIGN((head)->pe\_first, OID\_NULL);\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a9c8f39cc1858248c5f39c218b2b16ead}\label{pmemobj__list_8h_a9c8f39cc1858248c5f39c218b2b16ead}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}{POBJ\_SLIST\_INSERT\_AFTER}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER(\begin{DoxyParamCaption}\item[{}]{slistelm,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(slistelm) *slistelm\_ptr = D\_RW(slistelm);\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    TX\_ADD\_DIRECT(&elm\_ptr->field.pe\_next);\(\backslash\)
+    elm\_ptr->field.pe\_next = slistelm\_ptr->field.pe\_next;\(\backslash\)
+    TX\_ADD\_DIRECT(&slistelm\_ptr->field.pe\_next);\(\backslash\)
+    slistelm\_ptr->field.pe\_next = elm;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_ae5b43f35c6a97975daf1e480b87af7f1}\label{pmemobj__list_8h_ae5b43f35c6a97975daf1e480b87af7f1}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}{POBJ\_SLIST\_INSERT\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    TX\_ADD\_DIRECT(&elm\_ptr->field.pe\_next);\(\backslash\)
+    elm\_ptr->field.pe\_next = (head)->pe\_first;\(\backslash\)
+    TX\_SET\_DIRECT(head, pe\_first, elm);\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a1b823b3d55390af28b67a08e84f91046}\label{pmemobj__list_8h_a1b823b3d55390af28b67a08e84f91046}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE}{POBJ\_SLIST\_REMOVE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+VE(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    if (TOID\_EQUALS((head)->pe\_first, elm)) \{\(\backslash\)
+        POBJ\_SLIST\_REMOVE\_HEAD(head, field);\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *curelm\_ptr = D\_RW((head)->pe\_first);\(\backslash\)
+        while (!TOID\_EQUALS(curelm\_ptr->field.pe\_next, elm))\(\backslash\)
+            curelm\_ptr = D\_RW(curelm\_ptr->field.pe\_next);\(\backslash\)
+        TX\_ADD\_DIRECT(&curelm\_ptr->field.pe\_next);\(\backslash\)
+        curelm\_ptr->field.pe\_next = D\_RO(elm)->field.pe\_next;\(\backslash\)
+    \}\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a893c3b265d8a7ff6f8c2ae5d24fdea5e}\label{pmemobj__list_8h_a893c3b265d8a7ff6f8c2ae5d24fdea5e}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}{POBJ\_SLIST\_REMOVE\_FREE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    POBJ\_SLIST\_REMOVE(head, elm, field);\(\backslash\)
+    TX\_FREE(elm);\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a1aac9d530af469dc20ba62d61e5ddd2a}\label{pmemobj__list_8h_a1aac9d530af469dc20ba62d61e5ddd2a}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD}{POBJ\_SLIST\_REMOVE\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+S\+L\+I\+S\+T\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TX\_ADD\_DIRECT(&(head)->pe\_first);\(\backslash\)
+    (head)->pe\_first = D\_RO((head)->pe\_first)->field.pe\_next;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a4e376ed859f1416153bf0cf854718ab9}\label{pmemobj__list_8h_a4e376ed859f1416153bf0cf854718ab9}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY}{POBJ\_TAILQ\_ENTRY}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\{\(\backslash\)
+    TOID(type) pe\_next;\(\backslash\)
+    TOID(type) pe\_prev;\(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a4039b5980a3a61a32281620c19238703}\label{pmemobj__list_8h_a4039b5980a3a61a32281620c19238703}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST}{POBJ\_TAILQ\_FIRST}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+I\+R\+ST(\begin{DoxyParamCaption}\item[{}]{head }\end{DoxyParamCaption})~((head)-\/$>$pe\+\_\+first)}
+
+Returns the first element of a TailQ List. This particular element, can be used in different situations particularly in a queue system as the head of the queue. \mbox{\Hypertarget{pmemobj__list_8h_aa527db64d0a4eb38bc94554184b5460c}\label{pmemobj__list_8h_aa527db64d0a4eb38bc94554184b5460c}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH}{POBJ\_TAILQ\_FOREACH}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+CH(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{head,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} ((var) = \hyperlink{pmemobj__list_8h_a4039b5980a3a61a32281620c19238703}{POBJ\_TAILQ\_FIRST}(head);\(\backslash\)
+        !TOID\_IS\_NULL(var);\(\backslash\)
+        var = POBJ\_TAILQ\_NEXT(var, field))
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a98a1328046671acd37147176c4e15341}\label{pmemobj__list_8h_a98a1328046671acd37147176c4e15341}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE}{POBJ\_TAILQ\_FOREACH\_REVERSE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+F\+O\+R\+E\+A\+C\+H\+\_\+\+R\+E\+V\+E\+R\+SE(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{head,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} ((var) = \hyperlink{pmemobj__list_8h_ab1a1ab59d094a22fd65d12e7d4768550}{POBJ\_TAILQ\_LAST}(head);\(\backslash\)
+        !TOID\_IS\_NULL(var);\(\backslash\)
+        var = POBJ\_TAILQ\_PREV(var, field))
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a23b531ad1f4d4576bf62b8709cf4a529}\label{pmemobj__list_8h_a23b531ad1f4d4576bf62b8709cf4a529}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD}{POBJ\_TAILQ\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }name \{\(\backslash\)
+    TOID(type) pe\_first;\(\backslash\)
+    TOID(type) pe\_last;\(\backslash\)
+\}
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a74f5d9cb3d2048db986dd0677bee5a12}\label{pmemobj__list_8h_a74f5d9cb3d2048db986dd0677bee5a12}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT}{POBJ\_TAILQ\_INIT}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+IT(\begin{DoxyParamCaption}\item[{}]{head }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TX\_ADD\_FIELD\_DIRECT(head, pe\_first);\(\backslash\)
+    TOID\_ASSIGN((head)->pe\_first, OID\_NULL);\(\backslash\)
+    TX\_ADD\_FIELD\_DIRECT(head, pe\_last);\(\backslash\)
+    TOID\_ASSIGN((head)->pe\_last, OID\_NULL);\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Initializing the tailq queue, and assigning the head element pobj to O\+ID null, and assigning accordingly \mbox{\Hypertarget{pmemobj__list_8h_a02ab2ff71d91bad69fd9a1aba455af75}\label{pmemobj__list_8h_a02ab2ff71d91bad69fd9a1aba455af75}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER}{POBJ\_TAILQ\_INSERT\_AFTER}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+A\+F\+T\+ER(\begin{DoxyParamCaption}\item[{}]{listelm,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    TOID\_TYPEOF(listelm) *listelm\_ptr = D\_RW(listelm);\(\backslash\)
+    TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+    elm\_ptr->field.pe\_prev = listelm;\(\backslash\)
+    elm\_ptr->field.pe\_next = listelm\_ptr->field.pe\_next;\(\backslash\)
+    if (TOID\_IS\_NULL(listelm\_ptr->field.pe\_next)) \{\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_last, elm);\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *next = D\_RW(listelm\_ptr->field.pe\_next);\(\backslash\)
+        TX\_ADD\_DIRECT(&next->field.pe\_prev);\(\backslash\)
+        next->field.pe\_prev = elm;\(\backslash\)
+    \}\(\backslash\)
+    TX\_ADD\_DIRECT(&listelm\_ptr->field.pe\_next);\(\backslash\)
+    listelm\_ptr->field.pe\_next = elm;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a41490df00509f456c27b523213b96be0}\label{pmemobj__list_8h_a41490df00509f456c27b523213b96be0}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE}{POBJ\_TAILQ\_INSERT\_BEFORE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+B\+E\+F\+O\+RE(\begin{DoxyParamCaption}\item[{}]{listelm,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    TOID\_TYPEOF(listelm) *listelm\_ptr = D\_RW(listelm);\(\backslash\)
+    TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+    elm\_ptr->field.pe\_next = listelm;\(\backslash\)
+    elm\_ptr->field.pe\_prev = listelm\_ptr->field.pe\_prev;\(\backslash\)
+    if (TOID\_IS\_NULL(listelm\_ptr->field.pe\_prev)) \{\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_first, elm);\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *prev = D\_RW(listelm\_ptr->field.pe\_prev);\(\backslash\)
+        TX\_ADD\_DIRECT(&prev->field.pe\_next);\(\backslash\)
+        prev->field.pe\_next = elm; \(\backslash\)
+    \}\(\backslash\)
+    TX\_ADD\_DIRECT(&listelm\_ptr->field.pe\_prev);\(\backslash\)
+    listelm\_ptr->field.pe\_prev = elm;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_ae64ca8f8f0408a5cbad62d13d20d6c34}\label{pmemobj__list_8h_ae64ca8f8f0408a5cbad62d13d20d6c34}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD}{POBJ\_TAILQ\_INSERT\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    if (TOID\_IS\_NULL((head)->pe\_first)) \{\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_prev = (head)->pe\_first;\(\backslash\)
+        elm\_ptr->field.pe\_next = (head)->pe\_first;\(\backslash\)
+        TX\_ADD\_DIRECT(head);\(\backslash\)
+        (head)->pe\_first = elm;\(\backslash\)
+        (head)->pe\_last = elm;\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *first = D\_RW((head)->pe\_first);\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_next = (head)->pe\_first;\(\backslash\)
+        elm\_ptr->field.pe\_prev = first->field.pe\_prev;\(\backslash\)
+        TX\_ADD\_DIRECT(&first->field.pe\_prev);\(\backslash\)
+        first->field.pe\_prev = elm;\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_first, elm);\(\backslash\)
+    \}\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Inserting the element similar to a queue to the head. This requires some basic steps which are carried out in sequence as a regular queue implementation. Initially the type of the element pointer is determined. The head , is pointed to the first, and the next is pointed to the first, and thus it becomes the new head inserted. This is the case, if there is no head, if ithere is aready a head, it is directly added, to the head, and the next is pointed to the head. \mbox{\Hypertarget{pmemobj__list_8h_ae74509f126cde573411f4261b88e708f}\label{pmemobj__list_8h_ae74509f126cde573411f4261b88e708f}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL}{POBJ\_TAILQ\_INSERT\_TAIL}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+I\+N\+S\+E\+R\+T\+\_\+\+T\+A\+IL(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    if (TOID\_IS\_NULL((head)->pe\_last)) \{\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_prev = (head)->pe\_last;\(\backslash\)
+        elm\_ptr->field.pe\_next = (head)->pe\_last;\(\backslash\)
+        TX\_ADD\_DIRECT(head);\(\backslash\)
+        (head)->pe\_first = elm;\(\backslash\)
+        (head)->pe\_last = elm;\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *last = D\_RW((head)->pe\_last);\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_prev = (head)->pe\_last;\(\backslash\)
+        elm\_ptr->field.pe\_next = last->field.pe\_next;\(\backslash\)
+        TX\_ADD\_DIRECT(&last->field.pe\_next);\(\backslash\)
+        last->field.pe\_next = elm;\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_last, elm);\(\backslash\)
+    \}\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_ab1a1ab59d094a22fd65d12e7d4768550}\label{pmemobj__list_8h_ab1a1ab59d094a22fd65d12e7d4768550}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST}{POBJ\_TAILQ\_LAST}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+L\+A\+ST(\begin{DoxyParamCaption}\item[{}]{head }\end{DoxyParamCaption})~((head)-\/$>$pe\+\_\+last)}
+
+Returns the first element of a TailQ List. This particular element, can be used in different situations particularly in a queue system as the tail of the queue. \mbox{\Hypertarget{pmemobj__list_8h_a1af338d077bc3e21e4f386bdb12b3f61}\label{pmemobj__list_8h_a1af338d077bc3e21e4f386bdb12b3f61}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD}{POBJ\_TAILQ\_MOVE\_ELEMENT\_HEAD}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+H\+E\+AD(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    if (TOID\_EQUALS((head)->pe\_last, elm) &&\(\backslash\)
+        TOID\_EQUALS(D\_RO((head)->pe\_first)->field.pe\_next, elm)) \{\(\backslash\)
+        \_POBJ\_SWAP\_PTR(elm, field);\(\backslash\)
+        \_POBJ\_SWAP\_PTR((head)->pe\_first, field);\(\backslash\)
+        POBJ\_TAILQ\_SWAP\_HEAD\_TAIL(head, field);\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *prev = D\_RW(elm\_ptr->field.pe\_prev);\(\backslash\)
+        TX\_ADD\_DIRECT(&prev->field.pe\_next);\(\backslash\)
+        prev->field.pe\_next = elm\_ptr->field.pe\_next;\(\backslash\)
+        if (TOID\_EQUALS((head)->pe\_last, elm)) \{\(\backslash\)
+            TX\_SET\_DIRECT(head, pe\_last, elm\_ptr->field.pe\_prev);\(\backslash\)
+        \} \textcolor{keywordflow}{else} \{\(\backslash\)
+            TOID\_TYPEOF(elm) *next = D\_RW(elm\_ptr->field.pe\_next);\(\backslash\)
+            TX\_ADD\_DIRECT(&next->field.pe\_prev);\(\backslash\)
+            next->field.pe\_prev = elm\_ptr->field.pe\_prev;\(\backslash\)
+        \}\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_prev = D\_RO((head)->pe\_first)->field.pe\_prev;\(\backslash\)
+        elm\_ptr->field.pe\_next = (head)->pe\_first;\(\backslash\)
+        TOID\_TYPEOF(elm) *first = D\_RW((head)->pe\_first);\(\backslash\)
+        TX\_ADD\_DIRECT(&first->field.pe\_prev);\(\backslash\)
+        first->field.pe\_prev = elm;\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_first, elm);\(\backslash\)
+    \}\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_ae1401110fc2cf753eb0c719970a8b35d}\label{pmemobj__list_8h_ae1401110fc2cf753eb0c719970a8b35d}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL}{POBJ\_TAILQ\_MOVE\_ELEMENT\_TAIL}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+M\+O\+V\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+\_\+\+T\+A\+IL(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    if (TOID\_EQUALS((head)->pe\_first, elm) &&\(\backslash\)
+        TOID\_EQUALS(D\_RO((head)->pe\_last)->field.pe\_prev, elm)) \{\(\backslash\)
+        \_POBJ\_SWAP\_PTR(elm, field);\(\backslash\)
+        \_POBJ\_SWAP\_PTR((head)->pe\_last, field);\(\backslash\)
+        POBJ\_TAILQ\_SWAP\_HEAD\_TAIL(head, field);\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        TOID\_TYPEOF(elm) *next = D\_RW(elm\_ptr->field.pe\_next);\(\backslash\)
+        TX\_ADD\_DIRECT(&next->field.pe\_prev);\(\backslash\)
+        next->field.pe\_prev = elm\_ptr->field.pe\_prev;\(\backslash\)
+        if (TOID\_EQUALS((head)->pe\_first, elm)) \{\(\backslash\)
+            TX\_SET\_DIRECT(head, pe\_first, elm\_ptr->field.pe\_next);\(\backslash\)
+        \} \textcolor{keywordflow}{else} \{    \(\backslash\)
+            TOID\_TYPEOF(elm) *prev = D\_RW(elm\_ptr->field.pe\_prev);\(\backslash\)
+            TX\_ADD\_DIRECT(&prev->field.pe\_next);\(\backslash\)
+            prev->field.pe\_next = elm\_ptr->field.pe\_next;\(\backslash\)
+        \}\(\backslash\)
+        TX\_ADD\_DIRECT(&elm\_ptr->field);\(\backslash\)
+        elm\_ptr->field.pe\_prev = (head)->pe\_last;\(\backslash\)
+        elm\_ptr->field.pe\_next = D\_RO((head)->pe\_last)->field.pe\_next;\(\backslash\)
+        \_\_typeof\_\_(elm\_ptr) last = D\_RW((head)->pe\_last);\(\backslash\)
+        TX\_ADD\_DIRECT(&last->field.pe\_next);\(\backslash\)
+        last->field.pe\_next = elm;\(\backslash\)
+        TX\_SET\_DIRECT(head, pe\_last, elm);\(\backslash\)
+    \}   \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_acfd1fa60787967b44b0a80902fb515d5}\label{pmemobj__list_8h_acfd1fa60787967b44b0a80902fb515d5}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE}{POBJ\_TAILQ\_REMOVE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+VE(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    TOID\_TYPEOF(elm) *elm\_ptr = D\_RW(elm);\(\backslash\)
+    if (TOID\_IS\_NULL(elm\_ptr->field.pe\_prev) &&\(\backslash\)
+        TOID\_IS\_NULL(elm\_ptr->field.pe\_next)) \{\(\backslash\)
+        TX\_ADD\_DIRECT(head);\(\backslash\)
+        (head)->pe\_first = elm\_ptr->field.pe\_prev;\(\backslash\)
+        (head)->pe\_last = elm\_ptr->field.pe\_next;\(\backslash\)
+    \} \textcolor{keywordflow}{else} \{\(\backslash\)
+        if (TOID\_IS\_NULL(elm\_ptr->field.pe\_prev)) \{\(\backslash\)
+            TX\_SET\_DIRECT(head, pe\_first, elm\_ptr->field.pe\_next);\(\backslash\)
+            TOID\_TYPEOF(elm) *next = D\_RW(elm\_ptr->field.pe\_next);\(\backslash\)
+            TX\_ADD\_DIRECT(&next->field.pe\_prev);\(\backslash\)
+            next->field.pe\_prev = elm\_ptr->field.pe\_prev;\(\backslash\)
+        \} \textcolor{keywordflow}{else} \{\(\backslash\)
+            TOID\_TYPEOF(elm) *prev = D\_RW(elm\_ptr->field.pe\_prev);\(\backslash\)
+            TX\_ADD\_DIRECT(&prev->field.pe\_next);\(\backslash\)
+            prev->field.pe\_next = elm\_ptr->field.pe\_next;\(\backslash\)
+        \}\(\backslash\)
+        if (TOID\_IS\_NULL(elm\_ptr->field.pe\_next)) \{\(\backslash\)
+            TX\_SET\_DIRECT(head, pe\_last, elm\_ptr->field.pe\_prev);\(\backslash\)
+            TOID\_TYPEOF(elm) *prev = D\_RW(elm\_ptr->field.pe\_prev);\(\backslash\)
+            TX\_ADD\_DIRECT(&prev->field.pe\_next);\(\backslash\)
+            prev->field.pe\_next = elm\_ptr->field.pe\_next;\(\backslash\)
+        \} \textcolor{keywordflow}{else} \{\(\backslash\)
+            TOID\_TYPEOF(elm) *next = D\_RW(elm\_ptr->field.pe\_next);\(\backslash\)
+            TX\_ADD\_DIRECT(&next->field.pe\_prev);\(\backslash\)
+            next->field.pe\_prev = elm\_ptr->field.pe\_prev;\(\backslash\)
+        \}\(\backslash\)
+    \}\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a3b51e4b8cdaf1c9b7d1b97b8a1b7e256}\label{pmemobj__list_8h_a3b51e4b8cdaf1c9b7d1b97b8a1b7e256}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE}{POBJ\_TAILQ\_REMOVE\_FREE}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+R\+E\+M\+O\+V\+E\+\_\+\+F\+R\+EE(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{elm,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    POBJ\_TAILQ\_REMOVE(head, elm, field);\(\backslash\)
+    TX\_FREE(elm);\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+\mbox{\Hypertarget{pmemobj__list_8h_a1df2f58da3a9036953760edaac244a25}\label{pmemobj__list_8h_a1df2f58da3a9036953760edaac244a25}} 
+\index{pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}!P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL}}
+\index{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL@{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL}!pmemobj\+\_\+list.\+h@{pmemobj\+\_\+list.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL}{POBJ\_TAILQ\_SWAP\_HEAD\_TAIL}}
+{\footnotesize\ttfamily \#define P\+O\+B\+J\+\_\+\+T\+A\+I\+L\+Q\+\_\+\+S\+W\+A\+P\+\_\+\+H\+E\+A\+D\+\_\+\+T\+A\+IL(\begin{DoxyParamCaption}\item[{}]{head,  }\item[{}]{field }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{\(\backslash\)
+    \_\_typeof\_\_((head)->pe\_first) temp = (head)->pe\_first;\(\backslash\)
+    TX\_ADD\_DIRECT(head);\(\backslash\)
+    (head)->pe\_first = (head)->pe\_last;\(\backslash\)
+    (head)->pe\_last = temp;\(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
